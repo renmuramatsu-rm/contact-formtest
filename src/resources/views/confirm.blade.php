@@ -16,7 +16,10 @@
                 <tr class="confirm-table__row">
                     <th class="confirm-table__header">お名前</th>
                     <td class="confirm-table__text">
-                        <input type="text" name="first_name" value="{{ $contact['first_name'] }}" readonly />
+                        <input type="text"
+                            value="{{ trim($contact['first_name'] . ' ' . $contact['last_name']) }}" readonly />
+                        <input type="hidden" name="first_name" value="{{ $contact['first_name'] }}">
+                        <input type="hidden" name="last_name" value="{{ $contact['last_name'] }}">
                     </td>
                 </tr>
                 <tr class="confirm-table__row">
@@ -53,7 +56,7 @@
                 <tr class="confirm-table__row">
                     <th class="confirm-table__header"></th>
                     <td class="confirm-table__text">
-                        
+                        <input type="text" name="category_id" value="{{ $contact['category_id'] }}" readonly />
                     </td>
                 </tr>
                 <tr class="confirm-table__row">
@@ -65,7 +68,7 @@
             </table>
         </div>
         <div class="form__button">
-            <button class="form__button-submit" type="submit" name="submit" formaction="/contacts/confirm">送信</button>
+            <button class="form__button-submit" type="submit" name="submit" formaction="/contacts">送信</button>
             <button class="form__button-back" type="submit" name="back" formaction="/">再入力</button>
         </div>
     </form>

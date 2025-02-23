@@ -130,10 +130,12 @@
                 <div class="form__input--text">
                     <select class="form__select" name="category_id">
                         <option value="" disabled selected>選択してください</option>
-
+                        @foreach($categories as $category)
+                        <option value="{{ $category->id }}">{{$category->content}}</option>
+                        @endforeach
                 </div>
                 <div class="form__error">
-                    @error('category_id')
+                    @error('content')
                     {{ $message }}
                     @enderror
                 </div>
