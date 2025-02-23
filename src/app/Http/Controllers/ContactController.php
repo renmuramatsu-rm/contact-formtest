@@ -33,4 +33,9 @@ class ContactController extends Controller
         Contact::create($contact);
         return view('thanks');
     }
+    public function back(Request $request)
+    {
+        $categories = DB::table('categories')->get();
+        return redirect('index')->with('categories', $categories)->withInput();
+    }
 }

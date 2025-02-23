@@ -45,13 +45,13 @@
                 <div class="form__input--text">
                     <ul class="form__list">
                         <li class="form__list-inner">
-                            <input class="form__list__text" type="radio" name="gender" value="男性" checked="checked">男性
+                            <input class="form__list__text" type="radio" name="gender" value="男性" checked="checked" {{ old("gender") == 1 ? "checked" : "" }}>男性
                         </li>
                         <li class="form__list-inner">
-                            <input class="form__list__text" type="radio" name="gender" value="女性">女性
+                            <input class="form__list__text" type="radio" name="gender" value="女性" {{ old('gender') == 2 ? "checked" : "" }}>女性
                         </li>
                         <li class="form__list-inner">
-                            <input class="form__list__text" type="radio" name="gender" value="その他">その他
+                            <input class="form__list__text" type="radio" name="gender" value="その他" {{ old("gender") == 3 ? "checked" : "" }}>その他
                         </li>
                     </ul>
                 </div>
@@ -83,7 +83,7 @@
             </div>
             <div class="form__group-content">
                 <div class="form__input--text">
-                    <input type="tel" name="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" value="{{ old('tel') }}" />
+                    <input type="tel" name="tel"  value="{{ old('tel') }}" />
                 </div>
                 <div class="form__error">
                     @error('tel')
