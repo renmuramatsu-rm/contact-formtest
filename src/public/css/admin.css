@@ -1,0 +1,58 @@
+.pagination-container {
+    display: flex;
+    justify-content: right;
+    margin-top: 20px;
+}
+
+.pagination {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    border-radius: 5px;
+    justify-content: right;
+}
+
+.pagination .page-item {
+    margin: 0 3px;
+}
+
+.pagination .page-item .page-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    /* 🔥 ボタンのサイズ */
+    height: 32px;
+    text-align: center;
+    padding: 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #333;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #8c7b69;
+    /* 🔥 画像のようなブラウン系の色 */
+    color: #fff;
+    border-color: #8c7b69;
+}
+
+.pagination .page-item .page-link:hover {
+    background-color: #ddd;
+}
+
+.pagination .page-item.disabled .page-link {
+    color: #aaa;
+    border-color: #ddd;
+    background-color: #f8f8f8;
+    cursor: not-allowed;
+}
+
+/* 矢印ボタンのスタイル */
+.pagination .page-item:first-child .page-link,
+.pagination .page-item:last-child .page-link {
+    font-size: 18px;
+    /* 🔥 矢印のサイズ */
+    color: #333;
+}

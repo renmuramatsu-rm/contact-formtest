@@ -9,7 +9,7 @@ class Contact extends Model
 {
     use HasFactory;
 
-    protected $fillable=[
+    protected $fillable = [
         'category_id',
         'first_name',
         'last_name',
@@ -24,5 +24,11 @@ class Contact extends Model
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function scopeContactSearch($query, $keyword) {
+        if (!empty($keyword)) {
+            $query->where('contact', 'like', '%' . $keyword . '%');
+        }
     }
 }
