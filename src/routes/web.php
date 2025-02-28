@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ModalController;
+use App\Http\Controllers\ExportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,10 +19,12 @@ use App\Http\Controllers\AdminController;
 */
 
 Route::get('/', [ContactController::class, 'index']);
-Route::post('/', [ContactController::class, 'back']);
-Route::post('/confirm', [ContactController::class, 'confirm']);
+Route::post('/back', [ContactController::class, 'back'])->name('back');
+Route::post('/confirm', [ContactController::class, 'confirm'])->name('confirm');
 Route::post('/contacts', [ContactController::class, 'store']);
 Route::middleware('auth')->group(function () {
     Route::get('/admin', [AuthController::class, 'index']);
 });
-Route::get('/admin/search', [AuthController::class, 'search']);
+Route::get('/admin/search', [AuthController::class, 'search'])->name('admin');
+Route::get('/modal', [ModalController::class, 'modal']);
+Route::get('/admin/export', [ExportController::class, 'csvexport'])->name('admin.export');

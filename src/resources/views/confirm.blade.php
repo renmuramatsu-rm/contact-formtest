@@ -38,7 +38,11 @@
                 <tr class="confirm-table__row">
                     <th class="confirm-table__header">電話番号</th>
                     <td class="confirm-table__text">
-                        <input type="tel" name="tel" value="{{ $contact['tel'] }}" readonly />
+                        <input type="tel"
+                            value="{{ trim($contact['tel1'] . '-' . $contact['tel2'] . '-' . $contact['tel3']) }}" readonly />
+                        <input type="hidden" name="tel1" value="{{ $contact['tel1'] }}">
+                        <input type="hidden" name="tel2" value="{{ $contact['tel2'] }}">
+                        <input type="hidden" name="tel3" value="{{ $contact['tel3'] }}">
                     </td>
                 </tr>
                 <tr class="confirm-table__row">
@@ -56,11 +60,12 @@
                 <tr class="confirm-table__row">
                     <th class="confirm-table__header"></th>
                     <td class="confirm-table__text">
-                        <input type="text" name="category_id" value="{{ $contact['category_id'] }}" readonly />
+                        <input type="hidden" name="category_id" value="{{ $contact['category_id'] }}" />
+                        <input type="text" value="{{ $contact['content'] }}" readonly />
                     </td>
                 </tr>
                 <tr class="confirm-table__row">
-                    <th class="confirm-table__header">お問い合わせ内容</th>
+                    <th class="confirm-table__header"></th>
                     <td class="confirm-table__text">
                         <input type="text" name="detail" value="{{ $contact['detail'] }}" readonly />
                     </td>
@@ -69,7 +74,7 @@
         </div>
         <div class="form__button">
             <button class="form__button-submit" type="submit" name="submit" formaction="/contacts">送信</button>
-            <button class="form__button-back" type="submit" name="back" formaction="/">再入力</button>
+            <button class="form__button-back" type="submit" name="back" formaction="{{route('back')}}">再入力</button>
         </div>
     </form>
 </div>

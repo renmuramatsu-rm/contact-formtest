@@ -1,0 +1,128 @@
+.contact-form__heading {
+    margin-top: 50px;
+    text-align: center;
+    font-family: "Inika",
+        serif;
+    font-size: 35px;
+    line-height: 45.61px;
+    color: #8B7969
+}
+
+.form__page {
+    margin: 0 auto;
+    max-width: 972px;
+    width: 80%;
+    height: 606px;
+    font-family: "Inika",
+        serif;
+    color: #8B7969
+}
+
+.form__group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.form__group-title {
+    width: 40%;
+    height: 26px;
+    font-size: 20px;
+    line-height: 26px;
+    font-weight: bold;
+}
+
+.need {
+    color: red;
+    margin-left: 5px;
+}
+
+.form__group-content {
+    width: 75%;
+}
+
+.form__group-content-name {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.form__input--text input:not([type="radio"]),
+.form__select,
+.form__textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.form__list {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
+
+.form__list-inner {
+    list-style: none;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    gap: 10px;
+}
+
+.form__error {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.form__select {
+    appearance: none;
+    background-size: 16px;
+    cursor: pointer;
+}
+
+.form__input--text textarea {
+    height: 100px;
+    width: 100%;
+    resize: vertical;
+}
+
+.form__button {
+    text-align: center;
+    margin-top: 60px;
+}
+
+.form__button-submit {
+    padding: 10px 20px;
+    background-color: #8B7969;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.phone-group {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.phone-group .form__input--text input {
+    width: 60px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.phone-separator {
+    font-size: 18px;
+    color: #666;
+}

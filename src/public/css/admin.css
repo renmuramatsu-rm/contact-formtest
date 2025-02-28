@@ -1,7 +1,177 @@
+.header {
+    max-width: 1512px;
+    height: 100px;
+    border: 1px solid #E0DFDE;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+
+.header__inner {
+    margin: 0 auto;
+    padding: 20px 15px;
+    max-width: 1230px;
+    color: #8B7969
+}
+
+.header__logo {
+    color: #8B7969;
+    text-decoration: none;
+    font-size: 40px;
+    font-family: "Inika",
+        serif;
+
+}
+
+.logout__button {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.logout__button a {
+    background-color: #F4F4F4;
+    width: 100px;
+    height: 30px;
+    border: 1px solid #D9C6B5;
+    color: #D9C6B5;
+    padding: 6px 12px;
+    border-radius: 5px;
+    font-size: 14px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+body {
+    font-family: "Inika",
+        serif;
+
+}
+
+.admin__content {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+.search {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.search-form__item {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    flex-grow: 1;
+}
+
+.search-form__item-input,
+.search-form__item-select {
+    padding: 8px;
+    border: 1px solid #d4c6b6;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #6d5f50;
+    font-size: 14px;
+    outline: none;
+}
+
+.search-form__button,
+.reset-form__button {
+    display: inline-block;
+}
+
+.search-form__button-submit,
+button {
+    padding: 8px 15px;
+    border: none;
+    background-color: #8B7969;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.reset-form__button button {
+    padding: 8px 15px;
+    border: none;
+    background-color: #D9C6B5;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+
+.admin-table {
+    width: 80%;
+    overflow-x: visible;
+    margin: 0 auto;
+    text-align: center;
+    min-height: 100vh;
+}
+
+.admin-table__inner {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.admin-table__inner th,
+.admin-table__inner td {
+    padding: 10px;
+    border: 1px solid #d4c6b6;
+    text-align: left;
+}
+
+.admin-table__inner thead {
+    background-color: #8B7969;
+    color: #fff;
+    font-weight: bold;
+}
+
+.confirm-table__text-button button {
+    padding: 5px 10px;
+    background-color: #F4F4F44D;
+    color: #D9C6B5;
+    border: 1px solid #D9C6B599;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+}
+
 .pagination-container {
     display: flex;
-    justify-content: right;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+    margin-left: 200px;
     margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.csv {
+    margin-right: auto;
 }
 
 .pagination {
@@ -10,6 +180,9 @@
     padding: 0;
     border-radius: 5px;
     justify-content: right;
+}
+nav {
+    margin-left: auto;
 }
 
 .pagination .page-item {
@@ -21,7 +194,6 @@
     align-items: center;
     justify-content: center;
     width: 32px;
-    /* 🔥 ボタンのサイズ */
     height: 32px;
     text-align: center;
     padding: 0;
@@ -33,7 +205,6 @@
 
 .pagination .page-item.active .page-link {
     background-color: #8c7b69;
-    /* 🔥 画像のようなブラウン系の色 */
     color: #fff;
     border-color: #8c7b69;
 }
@@ -49,10 +220,8 @@
     cursor: not-allowed;
 }
 
-/* 矢印ボタンのスタイル */
 .pagination .page-item:first-child .page-link,
 .pagination .page-item:last-child .page-link {
     font-size: 18px;
-    /* 🔥 矢印のサイズ */
     color: #333;
 }

@@ -28,7 +28,9 @@ class ContactRequest extends FormRequest
             'last_name' => 'required',
             'gender' => 'required',
             'email' => 'required|email',
-            'tel' => 'required|regex:/^\d{1,5}$/',
+            'tel1' => 'required|regex:/^\d{1,5}$/',
+            'tel2' => 'required|regex:/^\d{1,5}$/',
+            'tel3' => 'required|regex:/^\d{1,5}$/',
             'address' => 'required',
             'category_id' => 'required',
             'detail' => 'required|max:120',
@@ -46,7 +48,9 @@ class ContactRequest extends FormRequest
             'category_id.required' => 'お問い合わせの種類を選択してください',
             'detail.required' => 'お問い合わせ内容を入力してください',
             'email.email' => 'メールアドレスはメール形式で入力してください',
-            'tel.regex' => '電話番号は5桁までの数字で入力してください',
+            'tel1.regex' => '電話番号は5桁までの数字で入力してください',
+            'tel2.regex' => '電話番号は5桁までの数字で入力してください',
+            'tel3.regex' => '電話番号は5桁までの数字で入力してください',
             'detail.max' => 'お問い合わせ内容は120文字以内で入力してください',
         ];
     }

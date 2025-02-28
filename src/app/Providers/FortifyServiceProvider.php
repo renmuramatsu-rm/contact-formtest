@@ -12,6 +12,11 @@ use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
 use Laravel\Fortify\Fortify;
+use App\Http\Requests\RegisterRequest;
+use Illuminate\Support\Facades\Validator;
+use App\Http\Requests\LoginRequest;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 
 class FortifyServiceProvider extends ServiceProvider
 {
@@ -29,6 +34,7 @@ class FortifyServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Fortify::createUsersUsing(CreateNewUser::class);
+
         Fortify::registerView(
             function () {
                 return view('auth.register');
@@ -39,6 +45,21 @@ class FortifyServiceProvider extends ServiceProvider
                 return view('auth.login');
             }
         );
+
+        // Fortify::authenticateUsing(function (Request $request) {
+        //     $validated = app(LoginRequest::class)->validate($request);
+
+        //     if (Auth::attempt(['email' => $validated['email'], 'password' => $validated['password']], $request->filled('remember'))) {
+        //         return Auth::user();
+        //     }
+
+        //     throw ValidationException::withMessages([
+        //         'email' => ['ログイン情報が正しくありません。'],
+        //     ]);
+
+            
+        // });
+
         RateLimiter::for(
             'login',
             function (Request $request) {
