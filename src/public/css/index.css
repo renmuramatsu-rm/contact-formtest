@@ -12,7 +12,7 @@
     margin: 0 auto;
     max-width: 972px;
     width: 80%;
-    height: 606px;
+    height: auto;
     font-family: "Inika",
         serif;
     color: #8B7969
@@ -43,9 +43,14 @@
 
 .form__group-content-name {
     display: flex;
-    justify-content: space-between;
+    gap: 15px;
     width: 100%;
 }
+
+.form__group-content_name {
+    flex: 1;
+}
+
 
 .form__input--text input:not([type="radio"]),
 .form__select,
@@ -75,9 +80,10 @@
 }
 
 .form__error {
+    display: block;
     color: red;
     font-size: 14px;
-    margin-top: 5px;
+    margin-top: 10px;
 }
 
 .form__select {
@@ -94,7 +100,7 @@
 
 .form__button {
     text-align: center;
-    margin-top: 60px;
+    margin-top: 40px;
 }
 
 .form__button-submit {

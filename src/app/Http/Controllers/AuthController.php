@@ -69,5 +69,6 @@ class AuthController extends Controller
 
         return view('admin', compact('contacts','genders','categories', 'genderMap'));
     }
+
     
 }

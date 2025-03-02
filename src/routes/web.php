@@ -23,8 +23,8 @@ Route::post('/back', [ContactController::class, 'back'])->name('back');
 Route::post('/confirm', [ContactController::class, 'confirm'])->name('confirm');
 Route::post('/contacts', [ContactController::class, 'store']);
 Route::middleware('auth')->group(function () {
-    Route::get('/admin', [AuthController::class, 'index']);
+    Route::get('/admin', [AuthController::class, 'index'])->name('admin');
 });
-Route::get('/admin/search', [AuthController::class, 'search'])->name('admin');
+Route::get('/admin/search', [AuthController::class, 'search']);
 Route::get('/modal', [ModalController::class, 'modal']);
 Route::get('/admin/export', [ExportController::class, 'csvexport'])->name('admin.export');

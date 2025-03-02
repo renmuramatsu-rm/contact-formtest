@@ -87,23 +87,25 @@
                 <div class="form__group-title">
                     <span class="form__label--item">電話番号<span class="need">※</span></span>
                 </div>
-                <div class="form__group-content phone-group">
-                    <div class="form__input--text">
-                        <input type="text" name="tel1" value="{{ old('tel1') }}" placeholder="080">
+                <div class="form__group-content">
+                    <div class="phone-group">
+                        <div class="form__input--text">
+                            <input type="text" name="tel1" value="{{ old('tel1') }}" placeholder="080">
+                        </div>
+                        <span class="phone-separator">-</span>
+                        <div class="form__input--text">
+                            <input type="text" name="tel2" value="{{ old('tel2') }}" placeholder="1234">
+                        </div>
+                        <span class="phone-separator">-</span>
+                        <div class="form__input--text">
+                            <input type="text" name="tel3" value="{{ old('tel3') }}" placeholder="5678">
+                        </div>
                     </div>
-                    <span class="phone-separator">-</span>
-                    <div class="form__input--text">
-                        <input type="text" name="tel2" value="{{ old('tel2') }}" placeholder="1234">
+                    <div class="form__error">
+                        @if ($errors->has('tel1') || $errors->has('tel2') || $errors->has('tel3'))
+                        <p class="text-danger">電話番号が正しくありません。</p>
+                        @endif
                     </div>
-                    <span class="phone-separator">-</span>
-                    <div class="form__input--text">
-                        <input type="text" name="tel3" value="{{ old('tel3') }}" placeholder="5678">
-                    </div>
-                </div>
-                <div class="form__error">
-                    @error('tel1') {{ $message }} @enderror
-                    @error('tel2') {{ $message }} @enderror
-                    @error('tel3') {{ $message }} @enderror
                 </div>
             </div>
             <div class="form__group">
@@ -150,7 +152,7 @@
                         </select>
                     </div>
                     <div class="form__error">
-                        @error('content')
+                        @error('category_id')
                         {{ $message }}
                         @enderror
                     </div>

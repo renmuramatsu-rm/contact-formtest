@@ -1,29 +1,28 @@
-<div>
-    <button wire:click="openModal()" type="button" class="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700">
-        モーダルを表示
-    </button>
+<div wire:key="modal">
+    
 
-    @if($showModal)
-    <div class="fixed z-10 inset-0 overflow-y-auto">
-        <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-            <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+    <p>DEBUG: showModal の値 → {{ $showModal ? '表示中' : '非表示' }}</p>
 
-            <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
-                <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-                    <h3 class="text-lg leading-6 font-medium text-gray-900">
-                        モーダルタイトル
-                    </h3>
-                    <div class="mt-2">
-                        <p class="text-sm text-gray-500">
-                            モーダルの内容をここに記述します。
-                        </p>
-                    </div>
-                </div>
-                <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-                    <button wire:click="closeModal()" type="button" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700">
-                        閉じる
-                    </button>
-                </div>
+    @if ($showModal)
+    <div class="modal-overlay" wire:click="closeModal"></div>
+    <div class="modal-container">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">お問い合わせ詳細</h5>
+                <button type="button" class="close" wire:click="closeModal">×</button>
+            </div>
+            <div class="modal-body">
+                @if ($contact)
+                <p><strong>ID:</strong> {{ $contact->id }}</p>
+                <p><strong>名前:</strong> {{ $contact->last_name }} {{ $contact->first_name }}</p>
+                <p><strong>メール:</strong> {{ $contact->email }}</p>
+                <p><strong>性別:</strong> {{ $contact->gender }}</p>
+                <p><strong>カテゴリ:</strong> {{ $contact->category->content ?? 'なし' }}</p>
+                <p><strong>メッセージ:</strong> {{ $contact->message }}</p>
+                @endif
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" wire:click="closeModal">閉じる</button>
             </div>
         </div>
     </div>

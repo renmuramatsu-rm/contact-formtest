@@ -17,6 +17,8 @@ use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\LoginRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
+use Laravel\Fortify\Contracts\LogoutResponse;
+use Illuminate\Support\Facades\Redirect;
 
 class FortifyServiceProvider extends ServiceProvider
 {
@@ -25,7 +27,15 @@ class FortifyServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->instance(
+            LogoutResponse::class,
+            new class implements LogoutResponse {
+                public function toResponse($request)
+                {
+                    return redirect('/login');
+                }
+            }
+        );
     }
 
     /**
@@ -46,19 +56,7 @@ class FortifyServiceProvider extends ServiceProvider
             }
         );
 
-        // Fortify::authenticateUsing(function (Request $request) {
-        //     $validated = app(LoginRequest::class)->validate($request);
-
-        //     if (Auth::attempt(['email' => $validated['email'], 'password' => $validated['password']], $request->filled('remember'))) {
-        //         return Auth::user();
-        //     }
-
-        //     throw ValidationException::withMessages([
-        //         'email' => ['ログイン情報が正しくありません。'],
-        //     ]);
-
-            
-        // });
+        
 
         RateLimiter::for(
             'login',
@@ -67,5 +65,6 @@ class FortifyServiceProvider extends ServiceProvider
                 return Limit::perMinute(10)->by($email . $request->ip());
             }
         );
+        
     }
 }
