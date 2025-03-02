@@ -20,6 +20,10 @@ $ docker-compose up -d --build
    laravel:8.83.8
    MySQL:8.0.41
 
+　【ER図】
+![image](https://github.com/user-attachments/assets/d394a34d-0a72-4fc7-8750-00dfafdcd321)
+
+
   【URL】
   　環境開発：http://localhost/
     phpMyadmin:http://localhost:8080/
